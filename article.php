@@ -1,5 +1,6 @@
 <?php session_start(); ?>
 <head>
+<base href="http://radionz.co.nz">
 <meta charset="UTF-8">
 <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.1/material.indigo-teal.min.css" />
 <script src="https://storage.googleapis.com/code.getmdl.io/1.0.1/material.min.js"></script>
@@ -7,7 +8,6 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <link rel="stylesheet" href="http://rnz.isaacmercer.nz/css/styles.css">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-
 <link rel="stylesheet" href="http://rnz.isaacmercer.nz/css/posts.css">
 <link rel="icon" href="http://rnz.isaacmercer.nz/favicon.png" type="image/png">
 <link rel="stylesheet" href="http://rnz.isaacmercer.nz/css/card.css">
@@ -139,7 +139,7 @@ $conn->close();
           </div>
           <div class="content" id="articletext" style="font-size: '.$fontsize.'em">
             <!-- Just to make the captions display properly later on -->
-            <div class="landscapephoto""><img alt="" title="" src="" class="photoborder" style="width: 0px; height: 0px"><div class="photocredit"><span class="photocredittext" style="background-color: rgba(0,0,0,0)"></span></div><div class="photocaption" style="background-color: rgba(0,0,0,0)"><p></p></div><div class="hdivider"> </div></div>
+            <div class="photo-captioned"><img src="/sggsg" style="width: 0px; height: 0px"/><div class="photo-credit" style="background-color: rgba(0,0,0,0)"></div></div>
             <p>'.$body.'</p>
           </div>
         </div>';

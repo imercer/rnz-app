@@ -1,4 +1,3 @@
-<?php session_start(); ?>
 <head><meta charset="UTF-8">
 <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.1/material.indigo-teal.min.css" />
 <script src="https://storage.googleapis.com/code.getmdl.io/1.0.1/material.min.js"></script>
@@ -12,34 +11,15 @@
 <link rel="icon" href="favicon.png" type="image/png">
 <title>Listen to RNZ</title>
 <style>
-.container { position: relative; width: 100px; height: 100px; float: left; margin: 5px;  }
-
-.checkbox { position: absolute; top: 8px; right: 8px; -webkit-transform: scale(2);}
-.title {
-  background-color: rgba(0,0,0,0.8);
-  color: #fff;
-  display: inline;
-  padding: 0.5rem;
-vertical-align: middle;
-position: absolute;
-    top: 40px;
-    text-align: center;
-    width: 100%;
-    z-index: 21;
-    left: 0px;
-  -webkit-box-decoration-break: clone;
-  box-decoration-break: clone;
-}
-
 .nothidden {
     display: inline-block;
 }
 .material-icons {
     font-size: inherit;
 }
-audio {
-    width: 100% !important;
-    height: 50% !important;
+video {
+    width: 320px !important;
+    height: 320px !important;
     margin: auto !important;
 }
 </style>
@@ -57,31 +37,49 @@ audio {
       <a href="#national" class="mdl-layout__tab is-active">National<i id="nationalicon" class="material-icons hidden">volume_up</i></a>
       <a href="#concert" class="mdl-layout__tab">Concert<i id="concerticon" class="material-icons hidden">volume_up</i></a>
       <a href="#international" class="mdl-layout__tab">International<i id="internationalicon" class="material-icons hidden">volume_up</i></a>
+      <a href="#parliament" class="mdl-layout__tab">Parliament<i id="parliamenticon" class="material-icons hidden">volume_up</i></a>
     </div>
   </header>
   <div class="mdl-layout__drawer">
-    <span class="mdl-layout-title">RNZ</span>
+    <span class="mdl-layout-title"><a href="/">RNZ</a></span>
+    <nav class="mdl-navigation">
+        <a class="mdl-navigation__link" href="/index.php">News</a>
+        <a class="mdl-navigation__link" href="/listen.html">Listen</a>
+        <a class="mdl-navigation__link" href="/watch.php">Watch</a>
+        <a class="mdl-navigation__link" href="/podcasts.php">Listen Again</a>
+    </nav>
   </div>
-<main class="mdl-layout__content">
+<main class="mdl-layout__content" style="text-align: center">
     <section class="mdl-layout__tab-panel is-active" id="national">
       <div class="page-content">
-              <audio onplay="nationalplay()" onpause="nationalpause()" id="national" src="http://radionz-ice.streamguys.com/national.mp3" controls>
-                <p>Your browser does not support the <code>audio</code> element </p>
-              </audio>
+              <video onplay="nationalplay()" onpause="nationalpause()" id="national" controls preload="auto" poster="/images/rnz-national.jpg"> 
+                  <source src="http://radionz-ice.streamguys.com/national.mp3" type="audio/mpeg">
+                  <p>Your browser does not support the <code>audio</code> element </p>
+                </video>
       </div>
     </section>
     <section class="mdl-layout__tab-panel" id="concert">
       <div class="page-content">
-                <audio onplay="concertplay()" onpause="concertpause()" id="concert" src="http://radionz-ice.streamguys.com/concert.mp3" controls>
-                  <p>Your browser does not support the <code>audio</code> element </p>
-                </audio>
+                <video onplay="concertplay()" onpause="concertpause()" id="concert" controls preload="auto" poster="/images/rnz-concert.jpg">
+                    <source src="http://radionz-ice.streamguys.com/concert.mp3" type="audio/mpeg">
+                    <p>Your browser does not support the <code>audio</code> element </p>
+                </video>
       </div>
     </section>
     <section class="mdl-layout__tab-panel" id="international">
       <div class="page-content">
-               <audio onplay="internationalplay()" onpause="internationalpause()" id="international" src="http://radionz-ice.streamguys.com/international.mp3" controls>
+               <video onplay="internationalplay()" onpause="internationalpause()" id="international" controls preload="auto" poster="/images/rnz.jpg">
+                   <source src="http://radionz-ice.streamguys.com/international.mp3" type="audio/mpeg">
                    <p>Your browser does not support the <code>audio</code> element </p>
-               </audio>
+                </video>
+      </div>
+    </section>
+    <section class="mdl-layout__tab-panel" id="parliament">
+      <div class="page-content">
+               <video onplay="parliamentplay()" onpause="parliamentpause()" id="parliament" controls preload="auto" poster="/images/rnz-maori.jpg">
+                   <source src="http://radionz-ice.streamguys.com/parliament.mp3" type="audio/mpeg">
+                   <p>Your browser does not support the <code>audio</code> element </p>
+                </video>
       </div>
     </section>
   </main>
@@ -104,6 +102,12 @@ function internationalplay() {
 }
 function internationalpause() {
     document.getElementById("internationalicon").className = "material-icons hidden";
+}
+function parliamentplay() {
+    document.getElementById("parliamenticon").className = "material-icons nothidden";
+}
+function parliamentpause() {
+    document.getElementById("parliamenticon").className = "material-icons hidden";
 }
 </script>
 </body>

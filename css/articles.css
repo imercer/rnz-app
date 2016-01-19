@@ -126,7 +126,7 @@ blockquote .author {
 }
 
 
-.landscapephoto {
+.photo-captioned {
     max-width: 420px;
     clear: right;
     width: 100%;
@@ -134,7 +134,7 @@ blockquote .author {
     margin-bottom: 5px;
     position: relative;
 }
-.landscapephoto>img {
+.photo-captioned>img {
     border-radius: 2px 2px 0 0;
     position: relative;
     left: 0;
@@ -144,25 +144,7 @@ blockquote .author {
     width: 100%;
 }
 
-.portraitphoto {
-    max-width: 650px;
-    clear: right;
-    width: 100%;
-    margin-right: 10px;
-    margin-bottom: 5px;
-    position: relative;
-}
-
-.portraitphoto>img {
-    border-radius: 2px 2px 0 0;
-    position: relative;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    width: 100%;
-}
-.photocaption {
+p[itemprop="caption"] {
          position: absolute;
          bottom: 0;
          left: 0;
@@ -171,7 +153,7 @@ blockquote .author {
          width: 100%;
          background-color: rgba(0,0,0,0.8);
  }
-.photocredittext {
+.photo-credit {
         position: absolute;
         top: 0;
         right: 0;
@@ -179,7 +161,9 @@ blockquote .author {
         color: #FFF;
         width: auto;
         background-color: rgba(0,0,0,0.8);
+        display: none;
 }
+
 .videowrapper {
     max-width: 420px;
     clear: right;
@@ -244,5 +228,8 @@ blockquote .author {
     display: none;
 }
 .galleryContainer {
+    display: none;
+}
+.related-stories {
     display: none;
 }

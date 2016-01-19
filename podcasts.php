@@ -13,7 +13,19 @@
 <link rel="icon" href="favicon.png" type="image/png">
       <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-<title>Home</title>
+<title>Podcasts</title>
+<style>
+    .title {
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 20px;
+        color: #FFF;
+        width: 100%;
+        background-color: rgba(0,0,0,1) !important;
+        bottom: auto !important;
+    }
+</style>
 </head>
 <body>
 <!-- Always shows a header, even in smaller screens. -->
@@ -21,7 +33,7 @@
   <header class="mdl-layout__header">
     <div class="mdl-layout__header-row">
       <!-- Title -->
-      <span class="mdl-layout-title">RNZ News</span>
+      <span class="mdl-layout-title">Listen Again</span>
       <!-- Add spacer, to align navigation to the right -->
       <div class="mdl-layout-spacer"></div>
       <button id="refreshericon" class="mdl-button mdl-js-button mdl-button--icon" onclick="location.reload();">
@@ -55,32 +67,22 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
-$sql = "SELECT * FROM `topics` ORDER BY  `topics`.`EpochDate` DESC";
+$sql = "SELECT * FROM `podcast_series` ORDER BY  `id` DESC";
 $result = $conn->query($sql);
 $storytitles = array();
 if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
-         $title = $row['RawTitle'];
-         $description = $row['Description'];
-         $image = $row['ImageURL'];
-         $date = $row['Date'];
-         $link = $row['id'];
-         $category = $row['category'];
-         $url = $row['URL'];
-         $currenturl = "http://rnz.isaacmercer.nz/index.php?pos=$category$link#$category$link";
-         echo '<div class="card" id="'.$category .  $link . '" onClick="window.location=\'/article.php?ref=foryou&category='.$category.'&id='.$link.'&url='.$url.'&refurl='.$currenturl.'\';">
+         $name = $row['series'];
+         $formattedname = $row['FormalName'];
+         $image = $row['image'];
+         $description = $row['description'];
+         $status = $row['displayname'];
+         echo '<div class="card card-square" onClick="window.location=\'/episodes.php?series='.$name.'\';">
                    <div class="image">
-                        <img class="lazy" style="width: 100%" src="fallbackimages/4.jpg" data-original="'.$image.'"</img>
-                        <span class="title" style="text-overflow: ellipsis">' .$title. '</span>
+                        <img class="lazy" style="width: 100%" src="images/rnz.jpg" data-original="'.$image.'"</img>
+                        <span class="title '.$status.'" style="text-overflow: ellipsis">' .$formattedname. '</span>
                    </div>
-                   <div class="content">
-                          <small><em>Posted on '.$date.'</em></small></p>
-                          <p>'.$description.'</p>
-                  </div>
-                  <div class="action">
-                        <a href="/article.php?ref=foryou&category='.$category.'&id='.$link.'&url='.$url.'&refurl='.$currenturl.'">Read More</a><br>
-                  </div>
                 </div>';
     }
 } else {
