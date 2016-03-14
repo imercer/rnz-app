@@ -52,7 +52,7 @@ video {
 <main class="mdl-layout__content" style="text-align: center">
     <section class="mdl-layout__tab-panel is-active" id="national">
       <div class="page-content">
-              <video onplay="nationalplay()" onpause="nationalpause()" id="national" controls preload="auto" poster="/images/rnz-national.jpg"> 
+              <video webkit-playsinline onplay="nationalplay()" onpause="nationalpause()" id="national" controls preload="auto" poster="/images/rnz-national.jpg">
                   <source src="http://radionz-ice.streamguys.com/national.mp3" type="audio/mpeg">
                   <p>Your browser does not support the <code>audio</code> element </p>
                 </video>
@@ -60,7 +60,7 @@ video {
     </section>
     <section class="mdl-layout__tab-panel" id="concert">
       <div class="page-content">
-                <video onplay="concertplay()" onpause="concertpause()" id="concert" controls preload="auto" poster="/images/rnz-concert.jpg">
+                <video webkit-playsinline onplay="concertplay()" onpause="concertpause()" id="concert" controls preload="auto" poster="/images/rnz-concert.jpg">
                     <source src="http://radionz-ice.streamguys.com/concert.mp3" type="audio/mpeg">
                     <p>Your browser does not support the <code>audio</code> element </p>
                 </video>
@@ -68,7 +68,7 @@ video {
     </section>
     <section class="mdl-layout__tab-panel" id="international">
       <div class="page-content">
-               <video onplay="internationalplay()" onpause="internationalpause()" id="international" controls preload="auto" poster="/images/rnz.jpg">
+               <video webkit-playsinline onplay="internationalplay()" onpause="internationalpause()" id="international" controls preload="auto" poster="/images/rnz.jpg">
                    <source src="http://radionz-ice.streamguys.com/international.mp3" type="audio/mpeg">
                    <p>Your browser does not support the <code>audio</code> element </p>
                 </video>
@@ -76,7 +76,7 @@ video {
     </section>
     <section class="mdl-layout__tab-panel" id="parliament">
       <div class="page-content">
-               <video onplay="parliamentplay()" onpause="parliamentpause()" id="parliament" controls preload="auto" poster="/images/rnz-maori.jpg">
+               <video webkit-playsinline onplay="parliamentplay()" onpause="parliamentpause()" id="parliament" controls preload="auto" poster="/images/rnz-maori.jpg">
                    <source src="http://radionz-ice.streamguys.com/parliament.mp3" type="audio/mpeg">
                    <p>Your browser does not support the <code>audio</code> element </p>
                 </video>

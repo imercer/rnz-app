@@ -102,7 +102,7 @@ if ($result->num_rows > 0) {
          $audio = $row['URL'];
          echo '<div class="card card-square">
                    <div class="image">
-                <video controls preload="none" poster="'.$image.'">
+                <video webkit-playsinline controls preload="none" poster="'.$image.'">
                    <source src="'.$audio.'" type="audio/mpeg">
                    <p>Your browser does not support the <code>audio</code> element </p>
                 </video>
