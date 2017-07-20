@@ -74,7 +74,9 @@ $series = $_GET['series'];
 $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
 if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+	echo "<div class=\"alert alert-danger\" role=\"alert\">An error occured while retriving stories! I'll be onto it <br>";
+        die("Connection failed: " . $conn->connect_error);
+	echo "</div>";
 }
 $sql = "SELECT image FROM `podcast_series` WHERE series LIKE '$series'";
 $result = $conn->query($sql);
@@ -90,7 +92,9 @@ if ($result->num_rows > 0) {
 $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
 if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+	echo "<div class=\"alert alert-danger\" role=\"alert\">An error occured while retriving stories! I'll be onto it <br>";
+        die("Connection failed: " . $conn->connect_error);
+	echo "</div>";
 }
 $sql = "SELECT * FROM `podcasts` WHERE series LIKE '$series' ORDER BY  `podcasts`.`EpochDate` DESC";
 $result = $conn->query($sql);

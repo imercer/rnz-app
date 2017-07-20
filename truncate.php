@@ -7,7 +7,9 @@ $dbname = "rnz_app";
 $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
 if ($conn->connect_error) {
-   die("Connection failed: " . $conn->connect_error);
+	echo "<div class=\"alert alert-danger\" role=\"alert\">An error occured while retriving stories! I'll be onto it <br>";
+        die("Connection failed: " . $conn->connect_error);
+	echo "</div>";
 } 
 $sql = "TRUNCATE `topics`";
 if ($conn->query($sql) === TRUE) {

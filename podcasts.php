@@ -64,7 +64,9 @@ $adcode = "<iframe src='/ad.html' style='width: 100%; height: auto; border: 0; f
 $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
 if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+	echo "<div class=\"alert alert-danger\" role=\"alert\">An error occured while retriving stories! I'll be onto it <br>";
+        die("Connection failed: " . $conn->connect_error);
+	echo "</div>";
 }
 $sql = "SELECT * FROM `podcast_series` ORDER BY  `id` DESC";
 $result = $conn->query($sql);

@@ -62,7 +62,9 @@ $dbname = "rnz_app";
 $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
 if ($conn->connect_error) {
+    echo "<div class=\"alert alert-danger\" role=\"alert\">An error occured while retriving stories! I'll be onto it <br>";
     die("Connection failed: " . $conn->connect_error);
+	echo "</div>";
 }
 $sql = "SELECT * FROM `topics` WHERE url LIKE '%$url%'";
 $result = $conn->query($sql);
@@ -90,7 +92,8 @@ if ($result->num_rows > 0) {
 		$body = str_replace('<div class="photo-captioned photo-captioned-full photo-cntr eight_col" itemscope="" itemtype="http://schema.org/ImageObject"> width','<div style="display: none;"',$body);
     }
 } else {
-
+	echo "<div class=\"alert alert-danger\" role=\"alert\">An error occured while retriving stories! I'll be onto it <br>";
+	echo "</div>";
 }
 $conn->close();
 
