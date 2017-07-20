@@ -65,15 +65,15 @@ function delete_all_between($beginning, $end, $string) {
         $url = $link;
         $html = file_get_html($url);
         $randomno = mt_rand(0, count($fallbackimages)-1); $image = $fallbackimages[$randomno];
-        $articlebodyraw = $html->find('div.newsbody', 0); $articlebody = delete_all_between("<h3>Related", "</h3>", $articlebodyraw);
+        $articlebodyraw = $html->find('div.article__body', 0); $articlebody = delete_all_between('<ul class="related-stories">', '</ul>', $articlebodyraw);
         $imgid = 0;
         foreach($html->find('div.photo-captioned') as $element) {
           $img = $element;
             foreach($img->find('img') as $imgelement) {
             if ($imgid == 0) {
                 $imgid = 1;
-                $image = "http://radionz.co.nz";
-                $image .= $imgelement->src;
+                //$image = "http://radionz.co.nz";
+                $image = $imgelement->src;
             }
             }
         }
@@ -88,8 +88,8 @@ function delete_all_between($beginning, $end, $string) {
 
             $postlink = mysqli_real_escape_string($conn, $link);
 
-            echo "DELETE FROM `topics` WHERE URL='$postlink';";
-            $sql = "DELETE FROM `topics` WHERE URL='$postlink';";
+            echo "DELETE FROM `topics` WHERE RawTitle='$rawtitlesql' OR EpochDate='$EpochDate';";
+            $sql = "DELETE FROM `topics` WHERE RawTitle='$rawtitlesql' OR EpochDate='$EpochDate';";
             if ($conn->query($sql) === TRUE) {
                      echo "Duplicate Cleared \n";
             } else {
@@ -103,8 +103,8 @@ function delete_all_between($beginning, $end, $string) {
                  die("Connection failed: " . $conn->connect_error);
             } 
             $rawtitlesql = mysqli_real_escape_string($conn, $title);            $titlesql = mysqli_real_escape_string($conn, $newtitle);
-            $descriptionsql = mysqli_real_escape_string($conn, $description);
-            $bodytext = mysqli_real_escape_string($conn, $articlebody);
+            $descriptionsql = mysqli_real_escape_string($conn, $description);	$imagesql = mysqli_real_escape_string($conn, $image);
+            $bodytext = mysqli_real_escape_string($conn, $articlebody);			$linksql = mysqli_real_escape_string($conn, $postlink);
 
             $sql = "INSERT INTO topics 
                         (`Title`, `RawTitle`,
@@ -116,9 +116,9 @@ function delete_all_between($beginning, $end, $string) {
                     VALUES (
                         '$titlesql', '$rawtitlesql', 
                         '$descriptionsql', 
-                        '$image',
+                        '$imagesql',
                         '$date',
-                        '$postlink',
+                        '$linksql',
                         '$bodytext','$rawdate','$EpochDate','national');";
             if ($conn->query($sql) === TRUE) {
                      echo "National in Database \n";
@@ -128,14 +128,14 @@ function delete_all_between($beginning, $end, $string) {
             $conn->close();
 	}
 
-//Do Regional
+//Do regional
               $rss = new DOMDocument();
                 require_once('simple_html_dom.php');
                 require_once('url_to_absolute.php');
 	$rss->load('http://www.radionz.co.nz/rss/regional.xml');
 	$feed = array();
 	foreach ($rss->getElementsByTagName('item') as $node) {
-		$item = array (
+		$item = array ( 
 			'title' => $node->getElementsByTagName('title')->item(0)->nodeValue,
 			'description' => $node->getElementsByTagName('description')->item(0)->nodeValue,
 			'link' => $node->getElementsByTagName('link')->item(0)->nodeValue,
@@ -143,8 +143,8 @@ function delete_all_between($beginning, $end, $string) {
 			);
 		array_push($feed, $item);
 	}
-        $limit = count($feed);
-
+        $limit = count($feed);   
+              
 	for($x=0;$x<$limit;$x++) {
 		$title = str_replace(' & ', ' &amp; ', $feed[$x]['title']); $newtitle = truncate($string=$title,$length=50);
 		$link = $feed[$x]['link'];
@@ -153,35 +153,35 @@ function delete_all_between($beginning, $end, $string) {
         $url = $link;
         $html = file_get_html($url);
         $randomno = mt_rand(0, count($fallbackimages)-1); $image = $fallbackimages[$randomno];
-        $articlebodyraw = $html->find('div.newsbody', 0); $articlebody = delete_all_between("<h3>Related", "</h3>", $articlebodyraw);
+        $articlebodyraw = $html->find('div.article__body', 0); $articlebody = delete_all_between('<ul class="related-stories">', '</ul>', $articlebodyraw);
         $imgid = 0;
         foreach($html->find('div.photo-captioned') as $element) {
           $img = $element;
             foreach($img->find('img') as $imgelement) {
             if ($imgid == 0) {
                 $imgid = 1;
-                $image = "http://radionz.co.nz";
-                $image .= $imgelement->src;
+                //$image = "http://radionz.co.nz";
+                $image = $imgelement->src;
             }
             }
         }
             //print_r($_GET);
-        //print_r($_POST);
+        //print_r($_POST); 
             $conn = new mysqli($servername, $username, $password, $dbname);
             // Check connection
             if ($conn->connect_error) {
                  die("Connection failed: " . $conn->connect_error);
-            }
+            } 
             $rawtitlesql = mysqli_real_escape_string($conn, $title);
 
             $postlink = mysqli_real_escape_string($conn, $link);
 
-            echo "DELETE FROM `topics` WHERE URL='$postlink';";
-            $sql = "DELETE FROM `topics` WHERE URL='$postlink';";
+            echo "DELETE FROM `topics` WHERE RawTitle='$rawtitlesql' OR EpochDate='$EpochDate';";
+            $sql = "DELETE FROM `topics` WHERE RawTitle='$rawtitlesql' OR EpochDate='$EpochDate';";
             if ($conn->query($sql) === TRUE) {
-                     echo "regional Cleared \n";
+                     echo "Duplicate Cleared \n";
             } else {
-                    die("regional not cleared \n" . $conn->error);
+                    die("national not cleared \n" . $conn->error);
             }
             $conn->close();
 
@@ -189,24 +189,24 @@ function delete_all_between($beginning, $end, $string) {
             // Check connection
             if ($conn->connect_error) {
                  die("Connection failed: " . $conn->connect_error);
-            }
+            } 
             $rawtitlesql = mysqli_real_escape_string($conn, $title);            $titlesql = mysqli_real_escape_string($conn, $newtitle);
-            $descriptionsql = mysqli_real_escape_string($conn, $description);
-            $bodytext = mysqli_real_escape_string($conn, $articlebody);
+            $descriptionsql = mysqli_real_escape_string($conn, $description);	$imagesql = mysqli_real_escape_string($conn, $image);
+            $bodytext = mysqli_real_escape_string($conn, $articlebody);			$linksql = mysqli_real_escape_string($conn, $postlink);
 
-            $sql = "INSERT INTO topics
+            $sql = "INSERT INTO topics 
                         (`Title`, `RawTitle`,
-                        `Description`,
+                        `Description`, 
                         `ImageURL`,
                         `Date`,
                         `URL`,
-                        `ArticleContent`, `RawDate`, `EpochDate`, `category`)
+                        `ArticleContent`, `RawDate`, `EpochDate`, `category`) 
                     VALUES (
-                        '$titlesql', '$rawtitlesql',
-                        '$descriptionsql',
-                        '$image',
+                        '$titlesql', '$rawtitlesql', 
+                        '$descriptionsql', 
+                        '$imagesql',
                         '$date',
-                        '$postlink',
+                        '$linksql',
                         '$bodytext','$rawdate','$EpochDate','regional');";
             if ($conn->query($sql) === TRUE) {
                      echo "regional in Database \n";

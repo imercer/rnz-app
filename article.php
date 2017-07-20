@@ -86,6 +86,8 @@ if ($result->num_rows > 0) {
         $link .= "#";
         $link .= $table;
         $link .= $articleno;
+		$body = str_replace('<img src="'. $image . '"','',$body);
+		$body = str_replace('<div class="photo-captioned photo-captioned-full photo-cntr eight_col" itemscope="" itemtype="http://schema.org/ImageObject"> width','<div style="display: none;"',$body);
     }
 } else {
 
@@ -109,7 +111,7 @@ $conn->close();
                         <label class="mdl-textfield__label" for="sample1">Sharing URL</label>
                       </div>
                     </div>
-                    <a onClick="window.location='http://rnz.isaacmercer.nz/bookmark.php?action=add&category=<?php echo $table ?>&id=<?php echo $articleno ?>&url=<?php echo $url ?>'" style="color: white"><i class="material-icons">bookmark_border</i></a>
+                    <!--<a onClick="window.location='http://rnz.isaacmercer.nz/bookmark.php?action=add&category=<?php echo $table ?>&id=<?php echo $articleno ?>&url=<?php echo $url ?>'" style="color: white"><i class="material-icons">bookmark_border</i></a>-->
                     <button id="demo-menu-lower-right" class="mdl-button mdl-js-button mdl-button--icon">
                         <i class="material-icons">format_size</i>
                       </button>
@@ -123,7 +125,7 @@ $conn->close();
                       <li class="mdl-menu__item" onclick='darkMode()'>Dark Mode</li>
                       <li class="mdl-menu__item" onclick='lightMode()'>Light Mode</li>
                       <li class="mdl-menu__item"><hr></li>
-                      <li class="mdl-menu__item" onclick='window.location.href = "http://rnz.isaacmercer.nz/settings.php"'>Change Defaults</li>
+                      <!--<li class="mdl-menu__item" onclick='window.location.href = "http://rnz.isaacmercer.nz/settings.php"'>Change Defaults</li>-->
                     </ul>
                 </div>
               </header>
@@ -138,8 +140,8 @@ $conn->close();
             <span class="title">' .$title. '</span>
           </div>
           <div class="content" id="articletext" style="font-size: '.$fontsize.'em">
-            <!-- Just to make the captions display properly later on -->
-            <div class="photo-captioned"><img src="/sggsg" style="width: 0px; height: 0px"/><div class="photo-credit" style="background-color: rgba(0,0,0,0)"></div></div>
+            <!-- Just to make the captions display properly later on 
+            <div class="photo-captioned"><img src="/sggsg" style="width: 0px; height: 0px"/><div class="credit" style="background-color: rgba(0,0,0,0)"></div></div>-->
             <p>'.$body.'</p>
           </div>
         </div>';

@@ -133,6 +133,7 @@ blockquote .author {
     margin-right: 10px;
     margin-bottom: 5px;
     position: relative;
+	display:none;
 }
 .photo-captioned>img {
     border-radius: 2px 2px 0 0;
@@ -142,6 +143,7 @@ blockquote .author {
     top: 0;
     bottom: 0;
     width: 100%;
+	max-width: 420px;
 }
 
 p[itemprop="caption"] {
@@ -153,7 +155,7 @@ p[itemprop="caption"] {
          width: 100%;
          background-color: rgba(0,0,0,0.8);
  }
-.photo-credit {
+.credit {
         position: absolute;
         top: 0;
         right: 0;
@@ -161,7 +163,7 @@ p[itemprop="caption"] {
         color: #FFF;
         width: auto;
         background-color: rgba(0,0,0,0.8);
-        display: none;
+		display:none;
 }
 
 .videowrapper {

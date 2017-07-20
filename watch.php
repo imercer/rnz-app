@@ -40,7 +40,7 @@ iframe {
     <!-- Tabs -->
   </header>
   <div class="mdl-layout__drawer">
-    <span class="mdl-layout-title"><a href="/">RNZ</a></span>
+    <span class="mdl-layout-title"><a href="/">Radio</a></span>
     <nav class="mdl-navigation">
         <a class="mdl-navigation__link" href="/index.php">News</a>
         <a class="mdl-navigation__link" href="/listen.html">Listen</a>
@@ -55,6 +55,9 @@ iframe {
         $html = file_get_html('http://www.radionz.co.nz/national/programmes/checkpoint');
         $video = $html->find('div.video-stream', 0);
         echo $video;
+		if (!isset($video)) {
+			echo 'Checkpoint is currently not streaming at this time';
+		}
     ?>
   </main>
 </div>

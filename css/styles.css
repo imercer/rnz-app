@@ -12,7 +12,7 @@
     text-decoration: none;
     color: #757575;
 }
-/* RNZ COLOUR */
+/* Radio COLOUR */
 .mdl-layout__header {
     background-color: #310c04;
 }
@@ -104,4 +104,8 @@ a {
 }
 .topstories {
     background-color: #256091;
+}
+
+.rnz-art {
+	background-color: #310c04;
 }

@@ -51,7 +51,7 @@ video {
     </div>
   </header>
   <div class="mdl-layout__drawer">
-    <span class="mdl-layout-title"><a href="/">RNZ</a></span>
+    <span class="mdl-layout-title"><a href="/">Radio</a></span>
     <nav class="mdl-navigation">
         <a class="mdl-navigation__link" href="/index.php">News</a>
         <a class="mdl-navigation__link" href="/listen.html">Listen</a>
@@ -102,7 +102,7 @@ if ($result->num_rows > 0) {
          $audio = $row['URL'];
          echo '<div class="card card-square">
                    <div class="image">
-                <video webkit-playsinline controls preload="none" poster="'.$image.'">
+                <video webkit-playsinline controls preload="none" poster="images/rnz.jpg">
                    <source src="'.$audio.'" type="audio/mpeg">
                    <p>Your browser does not support the <code>audio</code> element </p>
                 </video>

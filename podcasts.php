@@ -17,13 +17,12 @@
 <style>
     .title {
         position: absolute;
-        top: 0;
+        bottom: 0;
         left: 0;
         padding: 20px;
         color: #FFF;
         width: 100%;
         background-color: rgba(0,0,0,1) !important;
-        bottom: auto !important;
     }
 </style>
 </head>
@@ -42,7 +41,7 @@
     </div>
   </header>
   <div class="mdl-layout__drawer">
-    <span class="mdl-layout-title"><a href="/">RNZ</a></span>
+    <span class="mdl-layout-title"><a href="/">Radio</a></span>
     <nav class="mdl-navigation">
         <a class="mdl-navigation__link" href="/index.php">News</a>
         <a class="mdl-navigation__link" href="/listen.html">Listen</a>
@@ -78,11 +77,8 @@ if ($result->num_rows > 0) {
          $image = $row['image'];
          $description = $row['description'];
          $status = $row['displayname'];
-         echo '<div class="card card-square" onClick="window.location=\'/episodes.php?series='.$name.'\';">
-                   <div class="image">
-                        <img class="lazy" style="width: 100%" src="images/rnz.jpg" data-original="'.$image.'"</img>
-                        <span class="title '.$status.'" style="text-overflow: ellipsis">' .$formattedname. '</span>
-                   </div>
+         echo '<div class="card card-square rnz-art" onClick="window.location=\'/episodes.php?series='.$name.'\';">
+		 		<span style="bottom:0;left:0;position:absolute;color:#fff;font-size:24px;padding:5px">'.$formattedname.'</span>
                 </div>';
     }
 } else {

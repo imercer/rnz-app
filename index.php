@@ -21,7 +21,7 @@
   <header class="mdl-layout__header">
     <div class="mdl-layout__header-row">
       <!-- Title -->
-      <span class="mdl-layout-title">RNZ News</span>
+      <span class="mdl-layout-title">News</span>
       <!-- Add spacer, to align navigation to the right -->
       <div class="mdl-layout-spacer"></div>
       <button id="refreshericon" class="mdl-button mdl-js-button mdl-button--icon" onclick="location.reload();">
@@ -30,7 +30,7 @@
     </div>
   </header>
   <div class="mdl-layout__drawer">
-    <span class="mdl-layout-title"><a href="/">RNZ</a></span>
+    <span class="mdl-layout-title"><a href="/">Radio</a></span>
     <nav class="mdl-navigation">
         <a class="mdl-navigation__link" href="/index.php">News</a>
         <a class="mdl-navigation__link" href="/listen.html">Listen</a>
@@ -70,8 +70,13 @@ if ($result->num_rows > 0) {
          $url = $row['URL'];
          $currenturl = "http://rnz.isaacmercer.nz/index.php?pos=$category$link#$category$link";
          echo '<div class="card" id="'.$category .  $link . '" onClick="window.location=\'/article.php?ref=foryou&category='.$category.'&id='.$link.'&url='.$url.'&refurl='.$currenturl.'\';">
-                   <div class="image">
-                        <img class="lazy" style="width: 100%" src="fallbackimages/4.jpg" data-original="'.$image.'"</img>
+                   <div class="image">';
+				   		if (strpos($image, 'http://') !== false) {
+							echo '<img class="lazy" style="width: 100%" src="fallbackimages/4.jpg" data-original="'.$image.'"</img>';
+						} else {
+							echo '<img class="lazy" style="width: 100%" src="fallbackimages/4.jpg" data-original="http://radionz.co.nz'.$image.'"</img>';
+						} 
+						echo'
                         <span class="title" style="text-overflow: ellipsis">' .$title. '</span>
                    </div>
                    <div class="content">
