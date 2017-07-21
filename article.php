@@ -39,8 +39,14 @@ $(document).ready(function(){
   $('#articletext').attr('target', '_blank');
 }
 </script>
-</head>
-<body>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-5354491797983322",
+    enable_page_level_ads: true
+  });
+</script>
+</head><body>
     <?php
 error_reporting(0);
 $table = $_GET["category"];
@@ -146,6 +152,16 @@ $conn->close();
             <!-- Just to make the captions display properly later on 
             <div class="photo-captioned"><img src="/sggsg" style="width: 0px; height: 0px"/><div class="credit" style="background-color: rgba(0,0,0,0)"></div></div>-->
             <p>'.$body.'</p>
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- normalads -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-5354491797983322"
+     data-ad-slot="2113496792"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
           </div>
         </div>';
 

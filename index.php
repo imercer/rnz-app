@@ -14,8 +14,14 @@
       <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <title>Home</title>
-</head>
-<body>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-5354491797983322",
+    enable_page_level_ads: true
+  });
+</script>
+</head><body>
 <!-- Always shows a header, even in smaller screens. -->
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
   <header class="mdl-layout__header">
@@ -32,7 +38,7 @@
   <div class="mdl-layout__drawer">
     <span class="mdl-layout-title"><a href="/">Radio</a></span>
     <nav class="mdl-navigation">
-        <a class="mdl-navigation__link" href="/index.php">News</a>
+		<a class="mdl-navigation__link" href="/index.php">News</a>
         <a class="mdl-navigation__link" href="/listen.html">Listen</a>
         <a class="mdl-navigation__link" href="/watch.php">Watch</a>
         <a class="mdl-navigation__link" href="/podcasts.php">Listen Again</a>
@@ -89,6 +95,17 @@ if ($result->num_rows > 0) {
                         <a href="/article.php?ref=foryou&category='.$category.'&id='.$link.'&url='.$url.'&refurl='.$currenturl.'">Read More</a><br>
                   </div>
                 </div>';
+		/*echo '<div class="card"><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-format="fluid"
+     data-ad-layout="image-top"
+     data-ad-layout-key="-8i+1w-dq+e9+ft"
+     data-ad-client="ca-pub-5354491797983322"
+     data-ad-slot="8137169031"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script></div>';*/
     }
 } else {
 }

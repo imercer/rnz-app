@@ -29,8 +29,14 @@ iframe {
     height: 80%;
  }
 </style>
-</head>
-<body>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-5354491797983322",
+    enable_page_level_ads: true
+  });
+</script>
+</head><body>
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
   <header class="mdl-layout__header">
     <div class="mdl-layout__header-row">

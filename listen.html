@@ -22,9 +22,24 @@ video {
     height: 320px !important;
     margin: auto !important;
 }
+.demo-card-square.mdl-card {
+  width: 320px;
+  height: 320px;
+}
+.demo-card-square > .mdl-card__title {
+  color: #fff;
+  background:
+    url('../assets/demos/dog.png') bottom right 15% no-repeat #46B6AC;
+}
 </style>
-</head>
-<body>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-5354491797983322",
+    enable_page_level_ads: true
+  });
+</script>
+</head><body>
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header
             mdl-layout--fixed-tabs">
   <header class="mdl-layout__header">
@@ -33,12 +48,12 @@ video {
       <span class="mdl-layout-title">Listen</span>
     </div>
     <!-- Tabs -->
-    <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
+    <!--<div class="mdl-layout__tab-bar mdl-js-ripple-effect">
       <a href="#national" class="mdl-layout__tab is-active">National<i id="nationalicon" class="material-icons hidden">volume_up</i></a>
       <a href="#concert" class="mdl-layout__tab">Concert<i id="concerticon" class="material-icons hidden">volume_up</i></a>
       <a href="#international" class="mdl-layout__tab">International<i id="internationalicon" class="material-icons hidden">volume_up</i></a>
       <a href="#parliament" class="mdl-layout__tab">Parliament<i id="parliamenticon" class="material-icons hidden">volume_up</i></a>
-    </div>
+    </div>-->
   </header>
   <div class="mdl-layout__drawer">
     <span class="mdl-layout-title"><a href="/">Radio</a></span>
@@ -50,38 +65,57 @@ video {
     </nav>
   </div>
 <main class="mdl-layout__content" style="text-align: center">
-    <section class="mdl-layout__tab-panel is-active" id="national">
       <div class="page-content">
-              <video webkit-playsinline onplay="nationalplay()" onpause="nationalpause()" id="national" controls preload="auto" poster="/images/rnz.jpg">
+      <div class="mdl-grid">
+          <div class="mdl-cell mdl-cell--12-col" style="line-height: 1.5">
+ <div class="card">
+  <div class="image">
+	  <img src="/white.png" >
+    <span class="title">National</span>
+  </div>
+  <div class="mdl-card__supporting-text">
+    <video webkit-playsinline onplay="nationalplay()" onpause="nationalpause()" id="national" controls preload="auto" poster="/images/rnz.jpg">
                   <source src="http://radionz-ice.streamguys.com/national.mp3" type="audio/mpeg">
                   <p>Your browser does not support the <code>audio</code> element </p>
                 </video>
-      </div>
-    </section>
-    <section class="mdl-layout__tab-panel" id="concert">
-      <div class="page-content">
-                <video webkit-playsinline onplay="concertplay()" onpause="concertpause()" id="concert" controls preload="auto" poster="/images/rnz.jpg">
-                    <source src="http://radionz-ice.streamguys.com/concert.mp3" type="audio/mpeg">
-                    <p>Your browser does not support the <code>audio</code> element </p>
+  </div>
+</div>
+<div class="card">
+  <div class="image">
+	  <img src="/white.png" >
+    <span class="title">Concert</span>
+  </div>
+  <div class="mdl-card__supporting-text">
+    <video webkit-playsinline onplay="concertplay()" onpause="concertpause()" id="concert" controls preload="auto" poster="/images/rnz.jpg">
+                  <source src="http://radionz-ice.streamguys.com/concert.mp3" type="audio/mpeg">
+                  <p>Your browser does not support the <code>audio</code> element </p>
                 </video>
-      </div>
-    </section>
-    <section class="mdl-layout__tab-panel" id="international">
-      <div class="page-content">
-               <video webkit-playsinline onplay="internationalplay()" onpause="internationalpause()" id="international" controls preload="auto" poster="/images/rnz.jpg">
-                   <source src="http://radionz-ice.streamguys.com/international.mp3" type="audio/mpeg">
-                   <p>Your browser does not support the <code>audio</code> element </p>
+  </div>
+</div> 
+<div class="card">
+ <div class="image">
+	  <img src="/white.png" >
+    <span class="title">International</span>
+  </div>
+  <div class="mdl-card__supporting-text">
+    <video webkit-playsinline onplay="internationalplay()" onpause="internationalpause()" id="international" controls preload="auto" poster="/images/rnz.jpg">
+                  <source src="http://radionz-ice.streamguys.com/international.mp3" type="audio/mpeg">
+                  <p>Your browser does not support the <code>audio</code> element </p>
                 </video>
-      </div>
-    </section>
-    <section class="mdl-layout__tab-panel" id="parliament">
-      <div class="page-content">
-               <video webkit-playsinline onplay="parliamentplay()" onpause="parliamentpause()" id="parliament" controls preload="auto" poster="/images/rnz.jpg">
-                   <source src="http://radionz-ice.streamguys.com/parliament.mp3" type="audio/mpeg">
-                   <p>Your browser does not support the <code>audio</code> element </p>
+  </div>
+</div>         
+<div class="card">
+ <div class="image">
+	  <img src="/white.png" >
+    <span class="title">Parliament</span>
+  </div>
+  <div class="mdl-card__supporting-text">
+    <video webkit-playsinline onplay="parliamentplay()" onpause="parliamentpause()" id="parliament" controls preload="auto" poster="/images/rnz.jpg">
+                  <source src="http://radionz-ice.streamguys.com/parliament.mp3" type="audio/mpeg">
+                  <p>Your browser does not support the <code>audio</code> element </p>
                 </video>
-      </div>
-    </section>
+  </div>
+</div>
   </main>
 </div>
 <script>

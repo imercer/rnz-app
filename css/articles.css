@@ -235,3 +235,6 @@ p[itemprop="caption"] {
 .related-stories {
     display: none;
 }
+.c-play-controller {
+	display: none;
+}

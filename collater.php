@@ -65,7 +65,8 @@ function delete_all_between($beginning, $end, $string) {
         $url = $link;
         $html = file_get_html($url);
         $randomno = mt_rand(0, count($fallbackimages)-1); $image = $fallbackimages[$randomno];
-        $articlebodyraw = $html->find('div.article__body', 0); $articlebody = delete_all_between('<ul class="related-stories">', '</ul>', $articlebodyraw);
+        $articlebodyraw = $html->find('div.article__body', 0); 
+		$articlebody = delete_all_between('<ul class="related-stories">', '</ul>', $articlebodyraw); 
         $imgid = 0;
         foreach($html->find('div.photo-captioned') as $element) {
           $img = $element;
@@ -82,8 +83,10 @@ function delete_all_between($beginning, $end, $string) {
             $conn = new mysqli($servername, $username, $password, $dbname);
             // Check connection
             if ($conn->connect_error) {
-                 die("Connection failed: " . $conn->connect_error);
-            } 
+	echo "<div class=\"alert alert-danger\" role=\"alert\">An error occured while retriving stories! I'll be onto it <br>";
+        die("Connection failed: " . $conn->connect_error);
+	echo "</div>";
+} 
             $rawtitlesql = mysqli_real_escape_string($conn, $title);
 
             $postlink = mysqli_real_escape_string($conn, $link);
@@ -100,8 +103,10 @@ function delete_all_between($beginning, $end, $string) {
             $conn = new mysqli($servername, $username, $password, $dbname);
             // Check connection
             if ($conn->connect_error) {
-                 die("Connection failed: " . $conn->connect_error);
-            } 
+	echo "<div class=\"alert alert-danger\" role=\"alert\">An error occured while retriving stories! I'll be onto it <br>";
+        die("Connection failed: " . $conn->connect_error);
+	echo "</div>";
+} 
             $rawtitlesql = mysqli_real_escape_string($conn, $title);            $titlesql = mysqli_real_escape_string($conn, $newtitle);
             $descriptionsql = mysqli_real_escape_string($conn, $description);	$imagesql = mysqli_real_escape_string($conn, $image);
             $bodytext = mysqli_real_escape_string($conn, $articlebody);			$linksql = mysqli_real_escape_string($conn, $postlink);
@@ -170,8 +175,10 @@ function delete_all_between($beginning, $end, $string) {
             $conn = new mysqli($servername, $username, $password, $dbname);
             // Check connection
             if ($conn->connect_error) {
-                 die("Connection failed: " . $conn->connect_error);
-            } 
+	echo "<div class=\"alert alert-danger\" role=\"alert\">An error occured while retriving stories! I'll be onto it <br>";
+        die("Connection failed: " . $conn->connect_error);
+	echo "</div>";
+} 
             $rawtitlesql = mysqli_real_escape_string($conn, $title);
 
             $postlink = mysqli_real_escape_string($conn, $link);
@@ -188,8 +195,10 @@ function delete_all_between($beginning, $end, $string) {
             $conn = new mysqli($servername, $username, $password, $dbname);
             // Check connection
             if ($conn->connect_error) {
-                 die("Connection failed: " . $conn->connect_error);
-            } 
+	echo "<div class=\"alert alert-danger\" role=\"alert\">An error occured while retriving stories! I'll be onto it <br>";
+        die("Connection failed: " . $conn->connect_error);
+	echo "</div>";
+} 
             $rawtitlesql = mysqli_real_escape_string($conn, $title);            $titlesql = mysqli_real_escape_string($conn, $newtitle);
             $descriptionsql = mysqli_real_escape_string($conn, $description);	$imagesql = mysqli_real_escape_string($conn, $image);
             $bodytext = mysqli_real_escape_string($conn, $articlebody);			$linksql = mysqli_real_escape_string($conn, $postlink);
