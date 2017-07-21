@@ -18,19 +18,24 @@
     font-size: inherit;
 }
 video {
-    width: 320px !important;
-    height: 320px !important;
-    margin: auto !important;
+    border-radius: 2px 2px 0 0;
+    position: relative;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;    
 }
-.demo-card-square.mdl-card {
-  width: 320px;
-  height: 320px;
-}
-.demo-card-square > .mdl-card__title {
-  color: #fff;
-  background:
-    url('../assets/demos/dog.png') bottom right 15% no-repeat #46B6AC;
-}
+    .title {
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 20px;
+        color: #FFF;
+        width: 100%;
+        background-color: rgba(0,0,0,0.8);
+        bottom: auto !important;
+    }
 </style>
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <script>
@@ -68,52 +73,44 @@ video {
       <div class="page-content">
       <div class="mdl-grid">
           <div class="mdl-cell mdl-cell--12-col" style="line-height: 1.5">
- <div class="card">
+ <div class="card card-square">
   <div class="image">
-	  <img src="/white.png" >
-    <span class="title">National</span>
-  </div>
-  <div class="mdl-card__supporting-text">
-    <video webkit-playsinline onplay="nationalplay()" onpause="nationalpause()" id="national" controls preload="auto" poster="/images/rnz.jpg">
+    <video webkit-playsinline onplay="nationalplay()" onpause="nationalpause()" id="national" controls preload="auto" poster="/images/rnz.jpg" height="">
                   <source src="http://radionz-ice.streamguys.com/national.mp3" type="audio/mpeg">
                   <p>Your browser does not support the <code>audio</code> element </p>
                 </video>
+                   	 <span class="title">National <i id="nationalicon" class="material-icons hidden">volume_up</i> </span>
+
   </div>
 </div>
-<div class="card">
+<div class="card card-square">
   <div class="image">
-	  <img src="/white.png" >
-    <span class="title">Concert</span>
-  </div>
-  <div class="mdl-card__supporting-text">
     <video webkit-playsinline onplay="concertplay()" onpause="concertpause()" id="concert" controls preload="auto" poster="/images/rnz.jpg">
                   <source src="http://radionz-ice.streamguys.com/concert.mp3" type="audio/mpeg">
                   <p>Your browser does not support the <code>audio</code> element </p>
                 </video>
+                   	 <span class="title">Concert <i id="concerticon" class="material-icons hidden">volume_up</i> </span>
+
   </div>
 </div> 
-<div class="card">
- <div class="image">
-	  <img src="/white.png" >
-    <span class="title">International</span>
-  </div>
-  <div class="mdl-card__supporting-text">
+<div class="card card-square">
+  <div class="image">
     <video webkit-playsinline onplay="internationalplay()" onpause="internationalpause()" id="international" controls preload="auto" poster="/images/rnz.jpg">
                   <source src="http://radionz-ice.streamguys.com/international.mp3" type="audio/mpeg">
                   <p>Your browser does not support the <code>audio</code> element </p>
                 </video>
+                   	 <span class="title">International <i id="internationalicon" class="material-icons hidden">volume_up</i> </span>
+
   </div>
 </div>         
-<div class="card">
- <div class="image">
-	  <img src="/white.png" >
-    <span class="title">Parliament</span>
-  </div>
-  <div class="mdl-card__supporting-text">
+<div class="card card-square">
+  <div class="image">
     <video webkit-playsinline onplay="parliamentplay()" onpause="parliamentpause()" id="parliament" controls preload="auto" poster="/images/rnz.jpg">
                   <source src="http://radionz-ice.streamguys.com/parliament.mp3" type="audio/mpeg">
                   <p>Your browser does not support the <code>audio</code> element </p>
                 </video>
+                   	 <span class="title">Parliament <i id="parliamenticon" class="material-icons hidden">volume_up</i> </span>
+
   </div>
 </div>
   </main>
